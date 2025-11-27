@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectaTech Summit - Eventos de Tecnologia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>ConectaTech Summit</h1>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" data-page="eventos" class="nav-link active">Eventos</a></li>
+                    <li><a href="#" data-page="meus-eventos" class="nav-link auth-only">Meus Eventos</a></li>
+                    <li><a href="#" data-page="minhas-sessoes" class="nav-link auth-only">Minhas Sessões</a></li>
+                    <li><a href="#" data-page="login" class="nav-link guest-only">Login</a></li>
+                    <li><a href="#" data-page="registo" class="nav-link guest-only">Registo</a></li>
+                    <li><a href="#" id="logoutBtn" class="nav-link auth-only" style="display: none;">Sair</a></li>
+                </ul>
+                <div class="user-info auth-only" id="userInfo"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="page-eventos" class="page active">
+            <div class="page-header">
+                <h2>Eventos Disponíveis</h2>
+                <p class="subtitle">Descubra os melhores eventos de tecnologia</p>
+            </div>
+            <div id="loadingEventos" class="loading">Carregando eventos...</div>
+            <div id="eventosGrid" class="events-grid"></div>
+        </section>
+
+        <section id="page-sessoes" class="page">
+            <div class="page-header">
+                <button class="btn-back" id="btnBackFromSessoes">← Voltar aos Eventos</button>
+                <h2 id="sessaoEventoTitulo">Sessões do Evento</h2>
+            </div>
+            <div id="loadingSessoes" class="loading">Carregando sessões...</div>
+            <div id="sessoesGrid" class="sessions-grid"></div>
+        </section>
+
+        <section id="page-login" class="page">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <h2>Entrar na sua conta</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Senha</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <div id="loginError" class="error-message"></div>
+                        <button type="submit" class="btn-primary">Entrar</button>
+                    </form>
+                    <p class="auth-footer">
+                        Não tem conta? <a href="#" data-page="registo">Registar-se</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-registo" class="page">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <h2>Criar nova conta</h2>
+                    <form id="registoForm">
+                        <div class="form-group">
+                            <label for="registoNome">Nome Completo</label>
+                            <input type="text" id="registoNome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registoEmail">Email</label>
+                            <input type="email" id="registoEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registoPassword">Senha</label>
+                            <input type="password" id="registoPassword" required minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label for="registoTelefone">Telefone (opcional)</label>
+                            <input type="tel" id="registoTelefone">
+                        </div>
+                        <div id="registoError" class="error-message"></div>
+                        <div id="registoSuccess" class="success-message"></div>
+                        <button type="submit" class="btn-primary">Criar Conta</button>
+                    </form>
+                    <p class="auth-footer">
+                        Já tem conta? <a href="#" data-page="login">Entrar</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-meus-eventos" class="page">
+            <div class="page-header">
+                <h2>Meus Eventos</h2>
+                <p class="subtitle">Eventos nos quais está inscrito</p>
+            </div>
+            <div id="loadingMeusEventos" class="loading">Carregando suas inscrições...</div>
+            <div id="meusEventosGrid" class="events-grid"></div>
+            <div id="noEventos" class="empty-state" style="display: none;">
+                <p>Você ainda não está inscrito em nenhum evento.</p>
+                <a href="#" data-page="eventos" class="btn-primary">Ver Eventos Disponíveis</a>
+            </div>
+        </section>
+
+        <section id="page-minhas-sessoes" class="page">
+            <div class="page-header">
+                <h2>Minhas Sessões</h2>
+                <p class="subtitle">Sessões nas quais está inscrito</p>
+            </div>
+            <div id="loadingMinhasSessoes" class="loading">Carregando suas sessões...</div>
+            <div id="minhasSessoesGrid" class="sessions-grid"></div>
+            <div id="noSessoes" class="empty-state" style="display: none;">
+                <p>Você ainda não está inscrito em nenhuma sessão.</p>
+                <a href="#" data-page="eventos" class="btn-primary">Ver Eventos Disponíveis</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ConectaTech Summit. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
